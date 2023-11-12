@@ -1,0 +1,125 @@
+@media screen and (min-width: 1000px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+
+  body {
+    width: 100%;
+    height: 100%;
+    background-image: url(./photos/01.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    /* position:fixed会让页面不显示滚动条 */
+    position: fixed;
+    display: block;
+    overflow: scroll
+  }
+
+  .head {
+    display: flex;
+    font-family: 'Lobster', cursive;
+    justify-content: center;
+    margin-top: 80px;
+    font-size: 100px;
+  }
+
+  .container {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    /* background-color: #66ccff; */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+  .add {
+    display: block;
+    border-radius: 5px;
+    background: linear-gradient(to right, #f6d365 0%, #fda085 100%)
+  }
+
+  .change {
+    display: block;
+    border-radius: 5px;
+    background: linear-gradient(to right, #f6d365 0%, #fda085 100%)
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .welcome {
+    display: inline-block;
+  }
+
+  .under {
+    overflow-y: scroll;
+    height: 550px;
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  ul span {
+    width: 300px;
+    margin: 20px auto;
+  }
+
+  li {
+    box-sizing: border-box;
+    position: relative;
+    list-style: none;
+    width: 300px;
+    height: 150px;
+    border-radius: 20px;
+    margin: 20px auto;
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  li:hover {
+    border: #f6d365 3px solid;
+  }
+
+  li div:first-child {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: large;
+    font-family: 'Lobster', cursive;
+    background: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+    border-radius: 20px 0 5px 0;
+  }
+
+  li div:last-child {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 0 20px 0 5px;
+    background-image: url(./photos/OIP-C.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  * {
+    display: none;
+  }
+}

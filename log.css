@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 1280px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        /* 让body充满整个页面 */
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-image: url(./photos/01.jpg);
+        background-size: 1800px;
+        overflow: hidden;
+        background-repeat: no-repeat;
+
+    }
+
+    .back {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 350px;
+        height: 100vh;
+        padding: 150px 0;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        background-color: rgba(11, 9, 9, 0.3);
+        left: 10%;
+        /* 垂直方向居中可以用 */
+        /* margin-top: 50vh;
+        top: -300px; */
+    }
+
+    h2 {
+        display: block;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 80px;
+        margin-bottom: 20px;
+    }
+
+    .input {
+        box-sizing: border-box;
+        width: 290px;
+        height: 280px;
+        background-color: rgba(244, 142, 8, 0.8);
+        font-family: 'Lobster', cursive;
+        border-radius: 10px;
+        padding: 50px;
+        margin-top: 50px;
+    }
+
+    input {
+        display: block;
+        width: 200px;
+        height: 25px;
+        margin: auto;
+    }
+
+    .btn {
+        display: block;
+        width: 200px;
+        height: 30px;
+        margin: 35px auto;
+        transition: all 0.7s ease;
+    }
+
+    .btn:hover {
+        height: 40px;
+        background-color: gray;
+    }
+
+    span {
+        font-family: 'Lobster', cursive;
+
+        display: block;
+        font-size: 40px;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    * {
+        display: none;
+    }
+}

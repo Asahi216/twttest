@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <link href="https://fonts.googlefonts.cn/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <span class="head">Misaka Network</span>
+    <div class="container">
+        <div class="top">
+            <div class="welcome"></div>
+            <button class="add">单击以进行同步</button>
+            <input type="text" class="changeBefore"><b>修改为：</b>
+            <input type="text" class="changeAfter">
+            <button class="change">修改</button>
+        </div>
+        <div class="under">
+            <ul>
+                <li>
+                    <div></div>
+                    <div class="del"></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div class="del"></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div class="del"></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div class="del"></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div class="del"></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div class="del"></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div class="del"></div>
+                </li>
+                <li>
+                    <div></div>
+                    <div class="del"></div>
+                </li>
+
+
+                <span class="span1"></span>
+                <span></span>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search)
+        const name = urlParams.get("name")
+        const welcome = document.querySelector('.welcome')
+        welcome.innerHTML = `<b>你已接入网络，御坂${name}</b>`
+        // 获取ul中li的数量,使背景图片随机出现
+        const ul = document.querySelector('ul')
+        const lis = document.querySelectorAll('li')
+        const liss = Array.from(lis)
+        const add = document.querySelector('.add')
+        const span1 = document.querySelector('.span1')
+        const photos = ['./photos/01.jpeg', './photos/02.jpeg', './photos/03.jpg', './photos/04.webp']
+        liss.forEach(function (item, index) {
+            const random = Math.floor(Math.random() * 4)
+            item.style.backgroundImage = `url(${photos[random]})`
+            item.querySelector('div').innerHTML = index + 1
+            item.classList.add('animate__bounceIn')
+            item.classList.add(index + 1)
+        })
+        console.log(liss);
+        // 注册删除事件
+        ul.addEventListener('click', function (e) {
+            if (e.target.className === 'del') {
+                e.target.parentNode.classList.add('animate__bounceOut')
+                setTimeout(function () {
+                    e.target.parentNode.style.display = 'none'
+                }, 650)
+
+            }
+        })
+        // 注册增加事件
+        let i = liss.length
+        add.addEventListener('click', function () {
+            let li = document.createElement('li')
+            ul.insertBefore(li, span1)
+            const random = Math.floor(Math.random() * 4)
+            li.style.backgroundImage = `url(${photos[random]})`
+            li.innerHTML = '<div></div><div class="del"></div>'
+            li.classList.add('animate__bounceIn')
+            i++
+            li.querySelector('div').innerHTML = i
+            li.classList.add(i)
+        })
+        // 注册修改事件
+        const changeBefore = document.querySelector('.changeBefore')
+        const changeAfter = document.querySelector('.changeAfter')
+        const change = document.querySelector('.change')
+        change.addEventListener('click', function () {
+            if (changeBefore.value && changeAfter.value) {
+                let arr = document.querySelectorAll('li')
+                arr = Array.from(arr)
+                arr.forEach(function (item) {
+                    if (item.classList.contains(changeBefore.value)) {
+                        item.classList.remove(changeBefore.value)
+                        item.classList.add(changeAfter.value)
+                        item.querySelector('div').innerHTML = changeAfter.value
+                    }
+                })
+            }
+            else alert('输入不能为空')
+        })
+
+    </script>
+</body>
+
+</html>

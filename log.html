@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./log.css">
+    <link href="https://fonts.googlefonts.cn/css?family=Lobster" rel="stylesheet">
+</head>
+
+<body>
+    <div class="back">
+        <h2>御坂网络登录系统</h2>
+        <div class="input">
+            <input type="text" class="user" value="请输入编号"><br>
+            <input type="text" class="password" value="请输入密码"><br>
+            <button class="btn">登录</button>
+        </div>
+        <span><b>Users login</b></span>
+
+    </div>
+    <script>
+        const user = document.querySelector('.user')
+        const password = document.querySelector('.password')
+        const btn = document.querySelector('.btn')
+        user.addEventListener('focus', function () {
+            if (user.value === "请输入编号") {
+                user.value = null
+            }
+        })
+        password.addEventListener('focus', function () {
+            if (password.value === "请输入密码") {
+                password.value = null
+            }
+        })
+        btn.addEventListener('click', function () {
+            console.log(user.value);
+            console.log(password.value);
+            if (user.value === "" || user.value === "请输入编号") {
+                alert("输入编号不能为空")
+            }
+            else if (password.value === "" || password.value === "请输入密码") {
+                alert("输入密码不能为空")
+            }
+            else {
+                const name = user.value
+                const url = `./main.html?name=${name}`
+                window.location.href = url
+            }
+        })
+
+    </script>
+</body>
+
+</html>
